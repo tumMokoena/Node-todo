@@ -1,0 +1,16 @@
+GET /api/todos 200 - - 6.299 ms Mon, 07 Nov 2022 06:36:49 GMT
+GET /api/todos/1 404 - - 2.149 ms Mon, 07 Nov 2022 06:37:25 GMT
+GET /api/todos/todo?id=1 404 - - 1.078 ms Mon, 07 Nov 2022 06:38:43 GMT
+PUT /api/todos/todo/1 404 - - 0.415 ms Mon, 07 Nov 2022 06:39:48 GMT
+GET /api/todos/todo/1 404 - - 0.359 ms Mon, 07 Nov 2022 06:39:56 GMT
+GET /api/todos 200 - - 0.650 ms Mon, 07 Nov 2022 06:40:03 GMT
+PUT /api/todos/todo/1 404 - - 0.718 ms Mon, 07 Nov 2022 06:40:36 GMT
+GET /api/todos/todo/1 404 - - 7.034 ms Mon, 07 Nov 2022 06:47:36 GMT
+GET /api/todos/todo/1 404 - - 1.993 ms Mon, 07 Nov 2022 06:48:21 GMT
+PUT /api/todos/todo?id=1 404 - - 0.678 ms Mon, 07 Nov 2022 06:48:35 GMT
+PUT /api/todos/todo 404 - - 0.285 ms Mon, 07 Nov 2022 06:48:45 GMT
+POST /api/todos/todo 200 - - 2.851 ms Mon, 07 Nov 2022 06:48:54 GMT
+POST /api/todos/login 404 - - 2.234 ms Mon, 07 Nov 2022 07:38:18 GMT
+POST /api/auth/login 500 - - 3.859 ms Mon, 07 Nov 2022 07:39:26 GMT
+POST /api/auth/login 500 - - 5.594 ms Mon, 07 Nov 2022 07:42:43 GMT
+POST /api/auth/login 500 - - 6.591 ms Mon, 07 Nov 2022 07:51:21 GMT
