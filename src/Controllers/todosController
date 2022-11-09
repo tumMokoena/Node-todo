@@ -1,0 +1,34 @@
+//@DESCRIPTION:     GETS ALL TODOS
+//@ROUTE:           GET: API/V1/TODO/
+//@ACCESS:          PUBLIC
+exports.getTodos = (req,res,next)=>{
+    res.status(200).json({message:"get all Todos", succes:true});
+};
+
+//@DESCRIPTION:     ADD A SINGLE TODO
+//@ROUTE:           POST: API/V1/TODO/:ID
+//@ACCESS:          PUBLIC
+exports.addTodo = (req,res,next)=>{
+    res.status(200).json({message:`add Todo ${req.params.id}}`, succes:true});
+};
+
+//@DESCRIPTION:     GETS A SINGLE TODO
+//@ROUTE:           GET: API/V1/TODO/:ID
+//@ACCESS:          PUBLIC
+exports.getTodo = (req,res,next)=>{
+    res.status(200).json({message:`get single Todo ${req.params.id}}`, succes:true});
+};
+
+//@DESCRIPTION:     EDIT TODO
+//@ROUTE:           PUT: API/V1/TODO/:ID
+//@ACCESS:          PUBLIC
+exports.editTodo = (req,res,next)=>{
+    res.status(200).json({message:`editTodo ${req.params.id}}`, succes:true});
+};
+
+//@DESCRIPTION:     DELETE TODO
+//@ROUTE:           DELETE: API/V1/TODO/:ID
+//@ACCESS:          PUBLIC
+exports.deleteTodo = (req,res,next)=>{
+    res.status(200).json({message:`delete Todo ${req.params.id}}`, succes:true});
+};
