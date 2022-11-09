@@ -8,7 +8,7 @@ router.route('/')
 .get(getTodos)
 .post(addTodo);
 
-Router.route('/:id')
+router.route('/:id')
 .get(getTodo)
 .put(editTodo)
 .delete(deleteTodo);
