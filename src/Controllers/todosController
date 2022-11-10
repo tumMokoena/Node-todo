@@ -1,34 +1,40 @@
+const Todo = require('../Models/todoSchema')
+
 //@DESCRIPTION:     GETS ALL TODOS
 //@ROUTE:           GET: API/V1/TODO/
 //@ACCESS:          PUBLIC
-exports.getTodos = (req,res,next)=>{
-    res.status(200).json({message:"get all Todos", succes:true});
+exports.getTodos = async (req,res,next)=>{
+    const todos = await Todo.find();
+    res.status(200).json({succes: true , data: todos});
 };
 
 //@DESCRIPTION:     ADD A SINGLE TODO
 //@ROUTE:           POST: API/V1/TODO/:ID
 //@ACCESS:          PUBLIC
-exports.addTodo = (req,res,next)=>{
-    res.status(200).json({message:`add Todo ${req.params.id}}`, succes:true});
+exports.addTodo = async (req,res,next) => {
+    
+    const todo = await Todo.create(req.body)
+
+    res.status(201).json({succes:true, data:todo});
 };
 
 //@DESCRIPTION:     GETS A SINGLE TODO
 //@ROUTE:           GET: API/V1/TODO/:ID
 //@ACCESS:          PUBLIC
-exports.getTodo = (req,res,next)=>{
-    res.status(200).json({message:`get single Todo ${req.params.id}}`, succes:true});
+exports.getTodo = (req,res,next) => {
+    res.status(200).json({message:`get single Todo ${req.params.id}`, succes:true});
 };
 
 //@DESCRIPTION:     EDIT TODO
 //@ROUTE:           PUT: API/V1/TODO/:ID
 //@ACCESS:          PUBLIC
 exports.editTodo = (req,res,next)=>{
-    res.status(200).json({message:`editTodo ${req.params.id}}`, succes:true});
+    res.status(200).json({message:`editTodo ${req.params.id}`, succes:true});
 };
 
 //@DESCRIPTION:     DELETE TODO
 //@ROUTE:           DELETE: API/V1/TODO/:ID
 //@ACCESS:          PUBLIC
 exports.deleteTodo = (req,res,next)=>{
-    res.status(200).json({message:`delete Todo ${req.params.id}}`, succes:true});
+    res.status(200).json({message:`delete Todo ${req.params.id}`, succes:true});
 };
