@@ -166,3 +166,4 @@ GET /api/v1/todo 200 - - 74.114 ms Mon, 21 Nov 2022 13:11:21 GMT
 PUT /api/v1/todo/0 403 - - 8.277 ms Mon, 21 Nov 2022 13:12:09 GMT
 GET /api/v1/todo/0 200 - - 44.314 ms Mon, 21 Nov 2022 13:12:58 GMT
 GET /api/v1/auth/users 200 - - 33.962 ms Mon, 21 Nov 2022 13:17:31 GMT
+GET /api/v1/notifications/sms 200 - - 279.292 ms Mon, 21 Nov 2022 15:04:52 GMT

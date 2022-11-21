@@ -1,0 +1,24 @@
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+
+
+
+//@DESCRIPTION:     SEND TEST MESSAGE
+//@ROUTE:           GET: API/V1/NOTIFICATION/SMS
+//@ACCESS:          PRIVATE
+exports.sendSms = async (req,res,next) => {
+    
+    try {
+
+        client.messages
+            .create({body: 'Hi there', from: '+14258427809', to: '+26653368438'})
+            .then(message => console.log(message.sid));
+
+            res.status(200).json({success:true, message:"Sms send successfully"})
+
+    } catch (error) {
+        
+        res.status(400).json({success:false, message:"failed to send sms"})
+    }
+};

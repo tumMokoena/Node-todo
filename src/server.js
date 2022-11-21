@@ -21,6 +21,8 @@ const accesLogStream = fs.createWriteStream(path.join(__dirname,"Access.log"),{f
 
 const todoRoutes = require("./ApiRoutes/todosRoutes")
 const userRoutes = require('./ApiRoutes/userRoutes')
+const notificationRoutes = require('./ApiRoutes/notificationsRoutes')
+
 const {Stream}  = require("stream")
 
 var app  = express();
@@ -47,6 +49,7 @@ app.use(helmet());
 
 app.use("/api/v1/auth", userRoutes)
 app.use("/api/v1/todo", auth , todoRoutes )
+app.use("/api/v1/notifications", notificationRoutes)
 
 
 const server = app.listen(port, () => {

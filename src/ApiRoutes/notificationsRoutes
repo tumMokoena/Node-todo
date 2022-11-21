@@ -1,0 +1,9 @@
+const express = require("express")
+const router = express.Router()
+
+const {sendSms} = require('../Controllers/notificationsController');
+
+router.route('/sms')
+.get(sendSms)
+
+module.exports = router;
