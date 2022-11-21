@@ -8,6 +8,7 @@ const helmet =  require("helmet")
 const cors = require("cors")
 const connectDb = require('../dbConnection')
 const dotenv = require('dotenv')
+const auth = require("./Middlewares/auth")
 
 dotenv.config({path:'.env'})
 
@@ -19,6 +20,7 @@ connectDb()
 const accesLogStream = fs.createWriteStream(path.join(__dirname,"Access.log"),{flags:'a'})
 
 const todoRoutes = require("./ApiRoutes/todosRoutes")
+const userRoutes = require('./ApiRoutes/userRoutes')
 const {Stream}  = require("stream")
 
 var app  = express();
@@ -42,14 +44,17 @@ app.use(bodyParser.json());
 app.use(morgan(':method :url :status :res[content length] - :response-time ms :date[web]', { stream : accesLogStream }));
 app.use(helmet());
 
-app.use("/api/v1/todo", todoRoutes )
+
+app.use("/api/v1/auth", userRoutes)
+app.use("/api/v1/todo", auth , todoRoutes )
+
 
 const server = app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 })
 
 //handle promise rejection when trying to connect to database
-process.on('unhandledRejection',(err,promise) => {
+process.on('unhandledRejection',( err , promise ) => {
   console.log(`err: ${err.message}`)
   server.close(()=>process.exit(-1))
 })

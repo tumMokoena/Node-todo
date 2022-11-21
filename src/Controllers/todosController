@@ -13,16 +13,26 @@ exports.getTodos = async (req,res,next)=>{
 //@ACCESS:          PUBLIC
 exports.addTodo = async (req,res,next) => {
     
-    const todo = await Todo.create(req.body)
-
+    try {
+        const todo = await Todo.create(req.body)
+    } catch (error) {
+        res.status(400).json({success:false, message:"failed to create task"})
+    }
     res.status(201).json({succes:true, data:todo});
 };
 
 //@DESCRIPTION:     GETS A SINGLE TODO
 //@ROUTE:           GET: API/V1/TODO/:ID
 //@ACCESS:          PUBLIC
-exports.getTodo = (req,res,next) => {
-    res.status(200).json({message:`get single Todo ${req.params.id}`, succes:true});
+exports.getTodo = async ( req , res , next ) => {
+    try {
+        const todo = await Todo.findById(req.body.id);
+
+        res.status(200).json({succes:true , data : todo});
+
+    } catch (error) {
+        res.status(400).json({succes : true , data : `Todo with id ${req.body.id} is not found`});
+    }
 };
 
 //@DESCRIPTION:     EDIT TODO
